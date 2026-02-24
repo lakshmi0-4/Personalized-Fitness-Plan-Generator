@@ -4,7 +4,7 @@ from model_api import query_model
 
 st.set_page_config(page_title="FitPlan AI", page_icon="💪", layout="centered")
 
-# ---------- DARK CSS ----------
+# ---------- CSS ----------
 
 st.markdown("""
 <style>
@@ -12,72 +12,78 @@ st.markdown("""
 /* Background */
 
 .stApp {
-    background: linear-gradient(to right,#0f2027,#203a43,#2c5364);
-}
-
-/* Text */
-
-html, body, [class*="css"] {
-    color: white !important;
+background: linear-gradient(135deg,#141e30,#243b55);
+color:white;
 }
 
 /* Title */
 
-h1 {
-    text-align:center;
-    color:#00eaff !important;
-    font-size:42px;
+.title{
+text-align:center;
+font-size:42px;
+font-weight:bold;
+color:#00eaff;
+margin-bottom:0px;
+}
+
+.subtitle{
+text-align:center;
+font-size:18px;
+color:#cccccc;
+margin-bottom:30px;
+}
+
+/* Glass Card */
+
+.card{
+background: rgba(255,255,255,0.05);
+padding:25px;
+border-radius:18px;
+box-shadow:0px 6px 25px rgba(0,0,0,0.4);
+margin-top:15px;
 }
 
 /* Inputs */
 
-input {
-    background-color:#1e1e1e !important;
-    border-radius:10px !important;
-    border:2px solid #00eaff !important;
-    color:white !important;
+input{
+background:#111 !important;
+color:white !important;
+border-radius:10px !important;
+border:1px solid #00eaff !important;
 }
 
 /* Dropdown */
 
 div[data-baseweb="select"]>div{
-    background-color:#1e1e1e !important;
-    border-radius:10px !important;
-    border:2px solid #00eaff !important;
-    color:white !important;
+background:#111 !important;
+color:white !important;
+border-radius:10px !important;
+border:1px solid #00eaff !important;
 }
 
 /* Button */
 
 .stButton>button{
-    background-color:#00eaff !important;
-    color:black !important;
-    border-radius:12px !important;
-    font-size:18px !important;
-    padding:10px 25px !important;
+background:linear-gradient(90deg,#00eaff,#00c8d7);
+color:black;
+font-size:18px;
+border-radius:12px;
+padding:10px 25px;
+font-weight:bold;
+border:none;
 }
-
-/* Button Hover */
 
 .stButton>button:hover{
-    background-color:#00c8d7 !important;
+background:linear-gradient(90deg,#00c8d7,#00eaff);
 }
 
-/* Clean Result Box */
+/* Section titles */
 
-.resultbox{
-    background:#1e1e1e;
-    padding:15px 20px 20px 20px;
-    border-radius:15px;
-    border-left:5px solid #00eaff;
-    box-shadow:0px 4px 12px rgba(0,0,0,0.4);
-    margin-top:10px;
-}
-
-/* REMOVE TOP SPACE */
-
-.resultbox p:first-child{
-    margin-top:0px !important;
+.section{
+font-size:24px;
+font-weight:bold;
+color:#00eaff;
+margin-top:10px;
 }
 
 </style>
@@ -85,8 +91,8 @@ div[data-baseweb="select"]>div{
 
 # ---------- Title ----------
 
-st.markdown("<h1>💪 FitPlan AI</h1>", unsafe_allow_html=True)
-st.subheader("AI Personalized Workout Generator")
+st.markdown('<div class="title">💪 FitPlan AI</div>',unsafe_allow_html=True)
+st.markdown('<div class="subtitle">AI Personalized Workout Generator</div>',unsafe_allow_html=True)
 
 # ---------- Lists ----------
 
@@ -114,9 +120,13 @@ fitness_levels = [
 "Advanced"
 ]
 
-# ---------- Form ----------
+# ---------- FORM ----------
+
+st.markdown('<div class="card">',unsafe_allow_html=True)
 
 with st.form("fitness_form"):
+
+    st.markdown('<div class="section">Personal Details</div>',unsafe_allow_html=True)
 
     name = st.text_input("Name")
 
@@ -141,6 +151,8 @@ with st.form("fitness_form"):
         min_value=0.0
     )
 
+    st.markdown('<div class="section">Fitness Details</div>',unsafe_allow_html=True)
+
     goal = st.selectbox(
         "Fitness Goal",
         goals_list
@@ -159,11 +171,11 @@ with st.form("fitness_form"):
         fitness_levels
     )
 
-    submit = st.form_submit_button(
-        "Generate Workout Plan"
-    )
+    submit = st.form_submit_button("Generate Workout Plan")
 
-# ---------- Result ----------
+st.markdown('</div>',unsafe_allow_html=True)
+
+# ---------- RESULT ----------
 
 if submit:
 
@@ -186,11 +198,13 @@ if submit:
             selected_equipment
         )
 
-        st.success("Profile Generated")
+        st.success("Plan Generated Successfully")
 
-        st.write("## User Profile")
+        # Profile Card
 
-        st.markdown('<div class="resultbox">', unsafe_allow_html=True)
+        st.markdown('<div class="card">',unsafe_allow_html=True)
+
+        st.markdown('<div class="section">User Profile</div>',unsafe_allow_html=True)
 
         st.write("Name:",name)
         st.write("Age:",age)
@@ -199,15 +213,15 @@ if submit:
         st.write("Goal:",goal)
         st.write("Level:",level)
 
-        st.markdown('</div>', unsafe_allow_html=True)
+        st.markdown('</div>',unsafe_allow_html=True)
 
-        st.write("## 🏋️ AI 5-Day Workout Plan")
+        st.markdown('<div class="card">',unsafe_allow_html=True)
 
-        with st.spinner("Generating Plan..."):
+        st.markdown('<div class="section">AI Workout Plan</div>',unsafe_allow_html=True)
+
+        with st.spinner("Generating AI Plan..."):
             plan = query_model(prompt)
-
-        st.markdown('<div class="resultbox">', unsafe_allow_html=True)
 
         st.write(plan)
 
-        st.markdown('</div>', unsafe_allow_html=True)
+        st.markdown('</div>',unsafe_allow_html=True)
