@@ -2,10 +2,9 @@ FitPlan AI – Personalized Fitness Plan Generator (Milestone 2)
 
 ## **Objective**
 
-The objective of Milestone 2 is to integrate a Large Language Model (LLM) into the FitPlan AI application to generate personalized workout plans dynamically based on user fitness inputs collected in Milestone 1.
+The objective of Milestone 2 is to integrate a pre-trained Large Language Model (LLM) from Hugging Face into the FitPlan AI application to enable intelligent and dynamic generation of personalized workout plans. This milestone focuses on building a structured prompt generation system using user fitness inputs such as name, age, BMI category, fitness goal, fitness level, and available equipment. The integrated AI model processes these inputs and generates a customized 5-day workout plan tailored to the user's profile.
 
-The application allows users to enter their personal and fitness details and receive an AI-generated 5-day workout plan.
-
+The application is deployed using Streamlit on Hugging Face Spaces, ensuring successful model loading, prompt processing, and real-time workout plan generation.
 ---
 
 ## **Model Used**
