@@ -1,4 +1,4 @@
-FitPlan AI – Milestone 2
+FitPlan AI – Personalized Fitness Plan Generator (Milestone 2)
 
 ## **Objective**
 
