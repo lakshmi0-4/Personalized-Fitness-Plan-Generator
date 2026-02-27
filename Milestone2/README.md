@@ -140,7 +140,7 @@ Each day includes exercises with sets and repetitions.
 
 ## **Hugging Face Space Deployment Link**
 
-https://huggingface.co/spaces/LakshmiNandaS/Fitness_2
+https://huggingface.co/spaces/LakshmiNandaS/Fitness_3
 
 
 
