@@ -59,7 +59,7 @@ After verification, users provide details (Name, Gender, Age, Weight, Height) an
 
 ### 5. Generated Workout Plan
 <img width="1890" height="841" alt="image" src="https://github.com/user-attachments/assets/3b8d2d08-505a-41a2-b386-4c90be084d27" />
-<img width="1891" height="864" alt="image" src="https://github.com/user-attachments/assets/9a9f60df-aad4-4836-bbab-cb7a92d8043f" />
+<img width="1888" height="860" alt="image" src="https://github.com/user-attachments/assets/fcb921e5-6917-4900-8bc5-fec72aba38d9" />
 
 
 
