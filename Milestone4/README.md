@@ -25,6 +25,6 @@ Dockerfile: Containerization settings for deployment.
 🚀 Live Demonstration
 The finalized FitPlan AI application is live on Hugging Face Spaces:
 
-[!Live Link:] https://huggingface.co/spaces/LakshmiNandaS/FitPlanAI_PLAN_B
+[!Live Link:] https://huggingface.co/spaces/Sreehitha-V/Personalized_fitness_generator_DUP_
 
 FitPlan AI - Your Personalized Fitness Journey, Finalized.
